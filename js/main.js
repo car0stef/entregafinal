@@ -11,6 +11,7 @@ function preguntaN(){
             ${modeloRemerasNinio[1].modelo}\n
             ${modeloRemerasNinio[2].modelo}\n
             Presione ${modeloRemerasNinio[0].codigo}, ${modeloRemerasNinio[1].codigo} o ${modeloRemerasNinio[2].codigo} para seleccionar`);
+
         
         let resultNinio = modeloRemerasNinio.find(x => x.codigo === preguntaNinio);
             return alert(` Su modelo seleccionado es: ${resultNinio.modelo}`);
@@ -20,7 +21,7 @@ function totalNinio(cuanto){
                 cuanto = parseInt(prompt("¿Cuántas remeras desea comprar?"));
                     let resultado = cuanto * 1500;
                         preguntaN();
-                            return alert(`El total de su compra es: ${resultado}$`);
+                            return alert(`Precio unitario: 1500$ \n El total de su compra es: ${resultado}$`);
 }
 
 
@@ -36,16 +37,23 @@ function preguntaA(){
             ${modeloRemerasAdulto[0].modelo} con código ${modeloRemerasAdulto[0].codigo}\n
             ${modeloRemerasAdulto[1].modelo} con código ${modeloRemerasAdulto[1].codigo}\n 
             ${modeloRemerasAdulto[2].modelo} con código ${modeloRemerasAdulto[2].codigo}\n`);
-
                 let resultAdulto = modeloRemerasAdulto.find(x => x.codigo === preguntaAdulto);
-                    return alert(` Su modelo seleccionado es: ${resultAdulto.modelo}`);
+                    if(resultAdulto === "1" || "2" || "3"){
+                        alert(` Su modelo seleccionado es: ${resultAdulto.modelo}`);
+                    }else{
+
+                        //Este no me anda y no entiendo el porque =(
+                        //Igualmente el resto funciona bien
+
+                        return alert("Lo sentimos usted debe seleccionar entre: 1, 2 y 3");
+                    }
 }
 
 function totalAdulto(cuanto){
     cuanto = parseInt(prompt("¿Cuántas remeras desea comprar?"));
         let resultado = cuanto * 2300;
             preguntaA();
-                return alert(`El total de su compra es: ${resultado} $`);
+                return alert(`Precio unitario: 2300$ \n El total de su compra es: ${resultado} $`);
 }
 
 function saludo(){
@@ -68,7 +76,7 @@ function talle(){
             }
             else if (tipoPersona == "2"){
             let adulto = prompt("¿Qué talle desea seleccionar? S, M, L, XL");
-                if((adulto == "s") || (adulto == "m") || (adulto == "l") || (adulto == "xl")){
+                if((adulto == "s") || (adulto == "m") || (adulto == "l") || (adulto == "xl") || (adulto == "S") || (adulto == "M") || (adulto == "L") || (adulto == "XL")){
                     alert(`Se agregó correctamente el talle ${adulto}`);
                     totalAdulto();
                     saludo();
